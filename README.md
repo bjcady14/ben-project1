@@ -6,13 +6,24 @@ This application provides features for an individual in the role of a school adm
 ### Technologies Used
 * Apache-Maven 3.6.3
 * Spring Tool Suite
+*Spring Boot Framework 2.4.3
 * Docker v0.9.1-beta3
 * Kubernetes
-* Grafana
-* Loki
-* Fluentd
+* Grafana 6.4.5
+* Loki 2.3.0
+* Fluentd 0.3.4
+* Log4J 1.8.4
 
 ### Features
+This application allows school administrators to add students and courses to the university's roster and catalog, respectively. Users can easily pull up the roster and catalog to view all entries. Information about individual students and courses can be found by including the student's/course's name in the URI. Individuals students and courses can also be deleted in a similar way.
+
+### Getting Started
+* the command to clone the repository is 'git clone https://github.com/bjcady14/ben-project1.git'
+* If you have access to the Revature SRE cluster, use the command 'kubectl get ing'
+* Under the 'ADDRESS' field, copy the url 'a62d60162057149549617360016d2e38-542496291.us-east-1.elb.amazonaws.com' and add :8080 to the end to specify the port. Use this address to send http requests to the application.
+
+
+### Usage
 
 The features involving students include:
 
@@ -30,3 +41,8 @@ The features involving the courses include:
 * POST /courses - adds a course to the course catalog. The user enters data as a JSON in the request body, in the format {"name":"Calculus", "professor": "Gauss", "building: "Olin"}.
 * DELETE /courses/{name} -removes a course by the name given in the URI.
 * GET /courses/Building/{building} -finds all the courses in the building given in the URI.
+
+To-Do List:
+* Create an endpoint so a student can be enrolled in a course
+* Create a join table so a many-to-many relationship can be implemented. This would allow users to find all the courses taken by a particular student, and all the students enrolled in a particular course.
+
